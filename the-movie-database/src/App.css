@@ -36,3 +36,52 @@
     transform: rotate(360deg);
   }
 }
+
+/* Component code */
+
+.main_header{
+ 
+  padding-top: 5rem;
+  padding-left: 5rem;
+  text-align: center;
+}
+.images{
+  height: 17rem;
+  display:block;
+  margin: auto;
+}
+
+body{
+
+  background-color: white;
+}
+
+.card{
+  text-align: center;
+  padding-top: 10px;
+  opacity: 1;
+  width: 200px;
+  color: white;
+ 
+}
+
+.card-title{
+  color: black;
+  display: block;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+  margin-bottom: 0 !important;
+} 
+
+.container{
+  margin-top: 5rem;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: black !important;
+}
+
+
