@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 /* import './App.css'; */
+import PopularMoviesDetails from './PopularMoviesDetails';
 
 
 class PopularMovies extends React.Component {
@@ -12,6 +13,9 @@ class PopularMovies extends React.Component {
         this.state = {
             items: [],
             isLoaded: false,
+            item: [],
+            test: 'xxx',
+          
           }
     }
 
@@ -28,8 +32,14 @@ class PopularMovies extends React.Component {
                     items: json.results,
                     
                     
+                    
                 })
         });
+    }
+
+    MovieDetails(){
+        console.log("good work")
+        console.log(this.state.item.id) 
     }
 
     render() { 
@@ -42,8 +52,10 @@ class PopularMovies extends React.Component {
         
             
           };
+         
+        
 
-        let { isLoaded, items} = this.state;
+        let { isLoaded, items, test} = this.state;
 
         if(!isLoaded){
             return <div>Loading...</div>
@@ -62,14 +74,16 @@ class PopularMovies extends React.Component {
 
                             <div className="card-body">
                                 <h5 className="card-title">{item.title}</h5> 
-                           
+                                <input type="button" onClick={this.MovieDetails.bind(this)} value="Details"/>
+                                
+                        
                            </div>
                            </div>
                         </div>
                         ))}
                         
                         </Slider>
-                    
+                        <PopularMoviesDetails test={test}/>
                 
                 </div>
                     );

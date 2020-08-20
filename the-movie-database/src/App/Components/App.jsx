@@ -6,6 +6,7 @@ import PopularMovies from './PopularMovies';
 import PopularTvSeries from './PopularTvSeries';
 import FamilyMovies from './FamilyMovies';
 import DocumentaryMovies from './DocumentaryMovies';
+import PopularMoviesDetails from './PopularMoviesDetails';
 
 
 import '../../App.css';
@@ -25,6 +26,8 @@ function App() {
         <PopularTvSeries/>
         <FamilyMovies/>
         <DocumentaryMovies/>
+        <PopularMoviesDetails/>
+        
         
     
          
