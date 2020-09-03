@@ -64,6 +64,8 @@ class FamilyMovies extends React.Component {
                                 <h5 className="card-title">{item.title}</h5> 
                            
                            </div>
+                          
+                           
                            </div>
                         </div>
                         ))}

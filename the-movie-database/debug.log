@@ -1,0 +1,7 @@
+[0823/151625.841:ERROR:scoped_process_suspend.cc(31)] NtSuspendProcess: Došlo k pokusu o prístup ke koncícímu procesu. (0xc000010a)
+[0823/151625.915:ERROR:process_info.cc(118)] ReadProcessMemory bool __cdecl crashpad::(anonymous namespace)::ReadStruct(HANDLE, crashpad::WinVMAddress, T *) [T = crashpad::process_types::PEB<crashpad::process_types::internal::Traits64>]: Byla vyrízena pouze cást požadavku ReadProcessMemory nebo WriteProcessMemory. (0x12B)
+[0823/151625.923:ERROR:process_info.cc(551)] ReadProcessData failed
+[0901/173429.755:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
+[0901/223103.229:ERROR:process_info.cc(329)] VirtualQueryEx: Prístup byl odepren. (0x5)
+[0901/223103.230:ERROR:process_info.cc(556)] ReadMemoryInfo failed
+[0901/223103.230:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: Došlo k pokusu o prístup ke koncícímu procesu. (0xc000010a)
