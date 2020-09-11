@@ -24,14 +24,31 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> <!-- delete after test-->
+    <!-- Shaka Player ui compiled library: -->
+    <script src="dist/shaka-player.compiled.js"></script>
+    <!-- Shaka Player ui compiled library default CSS: -->
+    <link rel="stylesheet" type="text/css" href="dist/controls.css">
+    <!-- Chromecast SDK (if you want Chromecast support for your app): -->
+    <script defer src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> delete after test -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>The Movie Database</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root"><div>
+
+      <!-- <div data-shaka-player-container style="max-width:40em"
+      data-shaka-player-cast-receiver-id="7B25EC44"> -->
+    <!-- The data-shaka-player tag will make the UI library use this video element.
+         If no video is provided, the UI will automatically make one inside the container div. -->
+         <!-- <video id="video"
+         width="100%"
+         height="100%"
+         poster="//shaka-player-demo.appspot.com/assets/poster.jpg"
+         controls autoplay></video>
+ </div>  -->
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

@@ -3,10 +3,11 @@ import '../../App.css';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-/* import './App.css'; */
+
 
 
 class DocumentaryMovies extends React.Component {
+    // recreate it should be same as PopularMovie component
     constructor(props) {
         super(props);
         this.state = {
@@ -78,25 +79,4 @@ class DocumentaryMovies extends React.Component {
  
 export default DocumentaryMovies;
 
-/*
- <div className="container">
-                    <h2>Documentary movies</h2>
-                    <Slider {...settings}>
-                    
-                        {items.map(item =>(
-                        <div key={item} className="out">
-                           <div className="card">
-                               <img className="images" src={`http://image.tmdb.org/t/p/w342/${item.poster_path}`}  alt="poster"/>
 
-                            <div className="card-body">
-                                <h5 className="card-title">{item.title}</h5> 
-                           
-                           </div>
-                           </div>
-                        </div>
-                        ))}
-                        
-                        </Slider>
-                    
-                
-                </div> */

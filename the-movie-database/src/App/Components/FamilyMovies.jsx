@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 class FamilyMovies extends React.Component {
+    // recreate it should be same as PopularMovie component
     constructor(props) {
         super(props);
         this.state = {
