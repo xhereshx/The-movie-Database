@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import ShakaPlayer from "shaka-player-react";
 import "shaka-player/dist/controls.css";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import "../../App.css";
+import "../App.css";
 
 const MovieInfo = (props) => {
   // movie details code below
@@ -47,6 +47,7 @@ const MovieInfo = (props) => {
             <p>{props.currentMovie.overview}</p>
             <p>
               <b>Release date:</b> {props.currentMovie.release_date}
+              {props.currentMovie.first_air_date}
             </p>
             <p>
               <b>Vote average:</b> {props.currentMovie.vote_average}

@@ -1,11 +1,11 @@
 import React from "react";
 import Movie from "./Movie";
-import "../../App.css";
+import "../App.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-class PopularMoviesDetails extends React.Component {
+class MoviesDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -43,4 +43,4 @@ class PopularMoviesDetails extends React.Component {
   }
 }
 
-export default PopularMoviesDetails;
+export default MoviesDetails;

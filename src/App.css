@@ -39,59 +39,56 @@
 
 /* Component code */
 
-.main_header{
- 
+.main_header {
   padding-top: 5rem;
   padding-left: 5rem;
   text-align: center;
 }
-.images{
+.images {
   height: 17rem;
-  display:block;
+  display: block;
   margin: auto;
 }
 
-body{
-
+body {
   background-color: white;
 }
 
-.card{
+.card {
   text-align: center;
   padding-top: 10px;
   opacity: 1;
   width: 200px;
   color: white;
- 
 }
 
-.card-title{
+.card-title {
   color: black;
   display: block;
   overflow: hidden;
   font-size: 14px;
   line-height: 18px;
   text-overflow: ellipsis;
-  white-space: nowrap; 
+  white-space: nowrap;
   margin-bottom: 0 !important;
-} 
-
-.container{
-  margin-top: 5rem;
 }
+/* reopen */
+/* .container {
+  margin-top: 5rem;
+} */
 
-.slick-prev:before, .slick-next:before {
+.slick-prev:before,
+.slick-next:before {
   color: black !important;
 }
 
-.search-bar{
+.search-bar {
   width: 99%;
   display: block;
-  
 }
 /* test */
 
-.video{
+.video {
   /* background: #fff; */
   /* width: 100%; */
   /* height: 100%; */
@@ -104,16 +101,70 @@ body{
   /* display: flex;
   justify-content: center; */
 
-
-
   transform: translate(-50%, -50%);
-  position: absolute; 
-  top: 50%; 
+  position: absolute;
+  top: 50%;
   left: 50%;
   /* width: 90%;
   height: 90%; */
- 
-  
 }
 
+/*SearchBar */
+.input_field {
+  width: 50rem;
+  align-items: left;
+}
 
+.flexbox {
+  display: flex;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  border: 3px solid green;
+  /* flex-direction: row; */
+  justify-content: flex-start;
+}
+.row {
+  flex-direction: row;
+  display: flex;
+  /* box-sizing: border-box; */
+  border: 3px solid black;
+  width: 500px;
+}
+/* 
+.card {
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  -webkit-transition: -webkit-box-shadow 0.25s;
+  transition: -webkit-box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+  border-radius: 2px;
+} */
+.column {
+  /* box-sizing: border-box;
+  /* padding: 1em; */
+  flex-direction: column;
+  color: red;
+  border: 3px;
+  display: flex;
+  border: 3px blue solid;
+
+  /* flex-direction: row; */
+}
+
+.card-content {
+  padding: 24px;
+  border-radius: 0 0 2px 2px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+}
+
+/* .row {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+} */
