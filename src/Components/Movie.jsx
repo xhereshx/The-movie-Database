@@ -1,5 +1,6 @@
 import React from "react";
-import "../App.css";
+import "../App.scss";
+import { NavLink } from "react-router-dom";
 
 class Movie extends React.Component {
   constructor(props) {
@@ -10,42 +11,39 @@ class Movie extends React.Component {
     // creating cells in carousel
     return (
       <>
-        <div className="row s12 m6 l3">
+        <div>
           <div className="card">
             <div>
-              {this.props.image == null ? (
+              {/* This image is shown when movie Poster is not available */}
+              {this.props.image === null ? (
                 <img
-                  className=""
+                  className="carouselImage"
                   src={`https://s3-ap-southeast-1.amazonaws.com/upcode/static/default-image.jpg`}
                   alt="Card cap"
-                  style={{ width: "100%", height: 360 }}
                 />
               ) : (
+                // movie poster
                 <img
-                  className=""
+                  className="carouselImage"
                   src={`http://image.tmdb.org/t/p/w185${this.props.image}`}
                   alt="Card cap"
-                  style={{ width: "100%", height: 360 }}
                 />
               )}
             </div>
             {/* creating cards with movies */}
             <div className="card-body">
               <h6 className="card-title">
+                {/* for set up titles. Name is there because in PopularTvSerie is title called name */}
                 {this.props.title} {this.props.name}
               </h6>
-              {/* for set up titles. Name is there because in PopularTvSerie is title called name */}
             </div>
-            <div class="card-content">
+            <div className="card-content">
               <p>
-                <a
-                  href="#"
-                  onClick={() => this.props.viewMovieInfo(this.props.movieId)}
-                >
+                {/* Link to movieInfo Component, where are movie details. movieId=movie id. type=every carousel have another url in this place  */}
+                <NavLink to={`/${this.props.type}/${this.props.movieId}`}>
                   View Details
-                </a>
+                </NavLink>
               </p>
-              {/* creating button, code is propsed from SearchArea. This button will send you to details about movie */}
             </div>
           </div>
         </div>

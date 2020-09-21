@@ -1,69 +1,90 @@
 import React, { useState, useRef, useEffect } from "react";
 import ShakaPlayer from "shaka-player-react";
 import "shaka-player/dist/controls.css";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import "../App.css";
+import "../App.scss";
+import { Link } from "react-router-dom";
 
-const MovieInfo = (props) => {
+const MovieInfo = ({ match }) => {
+  const apiKey = "054382f1b063f38f88579fee1be9f3c9";
   // movie details code below
-  // const handle = useFullScreenHandle(); // to full screen
-  const [show, setShow] = useState(false); // states are use for changing button name and for change components
 
+  // declare new state which is use for changing button name and for show trailer
+  const [show, setShow] = useState(false);
+
+  // to change true and false in show
   function onToggle() {
     setShow(!show);
   }
 
-  const shakaRef = useRef(null); // for hold value of shakaRef
+  // for hold value of shakaRef
+  const shakaRef = useRef(null);
 
+  // every time when component is render or rerendered function inside of useEffect is called
+  useEffect(() => {
+    fetchItem();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  // above comment code is to fix bug in console
+
+  const [item, setItem] = useState({});
+
+  // instead of using componentDidMount and fetch. async is there because I need use await instead of .then
+  const fetchItem = async () => {
+    const fetchItem = await fetch(
+      ` https://api.themoviedb.org/3/${match.params.type}/${match.params.movieId}?api_key=${apiKey}&language=en-US`
+    );
+    const item = await fetchItem.json();
+    setItem(item);
+  };
+  // every time when component is render or rerender function inside of useEffect is called
+  // When show is false this code will acces shakaplayer to start full screen mode. Throw shakaRef(Dom) and ref in render.
   useEffect(() => {
     if (show && shakaRef) {
-      // const { player, ui, videoElement } = shakaRef && shakaRef.current;
-      // console.log(player, ui, videoElement);
       shakaRef.current.ui.a.ua[4].a.click();
     }
   }, [show]);
-
+  // hardcoded link to movie trailer
   const src =
-    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"; // hardcoded link to movie trailer
+    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
   return (
     <div className="container">
-      <div
-        className="row"
-        onClick={props.closeMovieInfo}
-        style={{ cursor: "pointer", paddingTop: 50 }}
-      >
-        <i className="fas fa-arrow-left"></i>
-        <span style={{ marginLeft: 10 }}>Go Back</span>
+      <div className="row infoContainer">
+        {/* link back to main menu. Color is here because it doesn`t work in App.css.  */}
+        <Link
+          className="fas fa-arrow-left infolink"
+          to="/"
+          style={{ color: "black" }}
+        >
+          <span className="infoText">Go Back</span>
+        </Link>
       </div>
-      {/* create go back button */}
       <div className="row">
         <div className="col s12 m8">
-          <div className="info-container">
+          <div>
             <h1>
-              {props.currentMovie.title} {props.currentMovie.name}
+              {item.original_title} {item.name}
             </h1>
             <br></br>
-            <p>{props.currentMovie.overview}</p>
+            <p>{item.overview}</p>
             <p>
-              <b>Release date:</b> {props.currentMovie.release_date}
-              {props.currentMovie.first_air_date}
+              <b>Release date:</b> {item.release_date}
+              {item.first_air_date}
             </p>
             <p>
-              <b>Vote average:</b> {props.currentMovie.vote_average}
+              <b>Vote average:</b> {item.vote_average}
             </p>
-            {/* infomation about movie above */}
+            {/* button to change movie poster and movie trailer */}
             <button onClick={onToggle}>
               {show ? "Stop Trailer" : "Play Trailer"}
             </button>
-            {/* button to play/stop movie trailer */}
           </div>
         </div>
         <div className="col s12 m4">
-          {/* <FullScreen handle={handle}> */}
           {show ? (
             //  code for full screen
-            <div className="video" style={{ width: "90%", height: "90%" }}>
+            <div className="video">
+              {/* setting up shakaplayer */}
               {show && (
                 <ShakaPlayer
                   ref={shakaRef}
@@ -73,17 +94,15 @@ const MovieInfo = (props) => {
                   width={"100%"}
                 />
               )}
-              {/* setting up shakaplayer */}
             </div>
           ) : (
+            //  show movie poster
             <img
-              src={`http://image.tmdb.org/t/p/w342/${props.currentMovie.poster_path}`}
+              className="Movie_info_image"
+              src={`http://image.tmdb.org/t/p/w342/${item.poster_path}`}
               alt="Movie poster"
-              style={{ width: "25rem", height: "25rem" }}
             />
           )}
-          {/* showing trailer of movie, when trailer is played */}
-          {/* </FullScreen> */}
         </div>
       </div>
     </div>
