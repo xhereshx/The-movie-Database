@@ -25,7 +25,7 @@ class Movies extends React.Component {
     this.handleSubmit();
   }
 
-  // looping throw popular movies, it is send to PopularMovieDetails component
+  // looping throw movies, it is send to MovieDetails component
   viewMovieInfo = (id) => {
     let filteredMovie;
     this.state.movies.forEach((movie, i) => {
